@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/index.tsx',       // .tsx로 변경
+  entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -20,15 +20,13 @@ module.exports = {
         options: {
           jsc: {
             parser: {
-              syntax: 'typescript',  // TSX/TS 처리
-              tsx: true,             // .tsx 파일 지원
-              jsx: true              // JSX도 함께
+              syntax: 'typescript',
+              tsx: true,
+              jsx: true,
             },
             transform: {
               react: {
-                runtime: 'classic',   // createElement 호출
-                pragma: 'createElement',
-                pragmaFrag: 'Fragment'
+                runtime: 'classic',
               },
             },
           },
@@ -38,6 +36,6 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx'],  // 순서대로 ts/tsx도 해석
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
 };

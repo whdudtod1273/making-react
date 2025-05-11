@@ -1,9 +1,11 @@
-function createElement(type: string, props: any, ...children: any) {
+function createElement(type: any, props: any, ...children: any) {
   return {
     type,
     props: {
       ...props,
-      children,
+      children: children.map((child: any) =>
+        typeof child === 'object' ? child : createTextElement(child),
+      ),
     },
   };
 }
